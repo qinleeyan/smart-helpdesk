@@ -1,58 +1,97 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Smart IT Helpdesk 🚀
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+> A modern, end-to-end IT Support Management platform built to streamline employee request workflows and reduce repetitive IT inquiries through an integrated Knowledge Base and Service Level Agreement (SLA) tracking system.
 
-## About Laravel
+## 🎯 Project Overview & Business Value
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+In many organizations, IT teams spend excessive time handling repetitive, low-level inquiries (e.g., "how to reset my password" or "printer is jammed"). My objective was to build a system that acts as a **smart filter**:
+1. **Self-Service First**: Employees are automatically suggested solutions from the Knowledge Base before submitting a ticket.
+2. **Prioritization & SLA**: Tickets that do reach the IT team are strictly categorized and tracked against strict time-to-resolution targets (SLAs).
+3. **Data-Driven Insight**: IT Managers get immediate visibility into support volume and bottleneck categories via the Analytics Dashboard.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+**Impact**: This workflow has the potential to *reduce repetitive tickets by up to 30-50%* while ensuring zero requests slip through the cracks.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 📸 System Gallery & Features
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 1. Dashboard & SLA Tracking
+The central hub for IT Admins. Provides real-time metrics on open tickets, resolution rates, and recent ticket activity. Tickets are visually tagged with SLA targets (e.g., *Urgent: 1h target*, *Normal: 4h target*) and pulse warnings when breached.
+![Dashboard & Tickets](gallery/dashboard_ticket.png)
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 2. Interactive Analytics
+A dedicated analytics view featuring responsive charts (built with Recharts) that map daily ticket volume trends and distribute support requests by department/category, helping managers spot recurring infrastructure issues.
+![Analytics](gallery/analytics.png)
+![Statistics](gallery/statistik.png)
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+### 3. Ticket Management
+Rich ticket detail views that show the complete conversation history, assignees, and real-time status transitions. Includes Toast Notifications for instant UX feedback.
+![Ticket Details](gallery/ticket.png)
 
-## Agentic Development
+### 4. Knowledge Base (Public & Admin View)
+The self-service heart of the platform. A searchable library of guides and solutions. When an employee types a related complaint, the system suggests these articles instantly.
+![KB Information](gallery/information.png)
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+### 5. Secure Authentication
+Role-based access control (RBAC) separating standard `User` privileges from `Admin` capabilities.
+![Login Admin](gallery/login_admin.png)
+
+---
+
+## 🛠️ Tech Stack & Architecture
+
+This project was built focusing on modern SPA (Single Page Application) principles, eliminating page reloads while maintaining the robust backend ecosystem of Laravel.
+
+- **Frontend:**
+  - **React 19** + **Inertia.js** (Server-driven SPA routing)
+  - **Tailwind CSS** + **shadcn/ui v4** (Premium, accessible UI components)
+  - **Recharts** (Interactive data visualization)
+  - **React Hot Toast** (Real-time application feedback)
+- **Backend:**
+  - **Laravel 11** (PHP Framework)
+  - **SQLite / MySQL**
+  - **Laravel Breeze** (Auth scaffolding)
+- **Design System:**
+  - Glassmorphism dark mode out-of-the-box
+  - HSL-driven CSS variables for custom theming
+
+## 🚀 How to Run Locally
+
+You can spin up this project locally with the dummy data (30 realistic IT tickets pre-seeded).
 
 ```bash
-composer require laravel/boost --dev
+# 1. Clone the repository
+git clone https://github.com/qinleeyan/smart-helpdesk.git
+cd smart-helpdesk
 
-php artisan boost:install
+# 2. Install PHP Dependencies
+composer install
+
+# 3. Install NPM Dependencies
+npm install
+
+# 4. Setup Environment
+cp .env.example .env
+php artisan key:generate
+
+# 5. Migrate & Seed Database 
+# (This seeds 30 realistic dummy tickets + sample KB articles)
+php artisan migrate:fresh --seed
+
+# 6. Run the Dev Servers (Run these simultaneously)
+php artisan serve
+npm run dev
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+### Default Demo Accounts
 
-## Contributing
+**Admin User:**
+- Email: `admin@example.com`
+- Password: `password`
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+**Regular Employee User:**
+- Email: `test@example.com`
+- Password: `password`
 
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+*Built by Dany Saputra.*
