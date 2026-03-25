@@ -17,24 +17,24 @@ In many organizations, IT teams spend excessive time handling repetitive, low-le
 
 ### 1. Dashboard & SLA Tracking
 The central hub for IT Admins. Provides real-time metrics on open tickets, resolution rates, and recent ticket activity. Tickets are visually tagged with SLA targets (e.g., *Urgent: 1h target*, *Normal: 4h target*) and pulse warnings when breached.
-![Dashboard & Tickets](gallery/dashboard_ticket.png)
+![Dashboard & Tickets](./gallery/dashboard_ticket.png)
 
 ### 2. Interactive Analytics
 A dedicated analytics view featuring responsive charts (built with Recharts) that map daily ticket volume trends and distribute support requests by department/category, helping managers spot recurring infrastructure issues.
-![Analytics](gallery/analytics.png)
-![Statistics](gallery/statistik.png)
+![Analytics](./gallery/analytics.png)
+![Statistics](./gallery/statistik.png)
 
 ### 3. Ticket Management
 Rich ticket detail views that show the complete conversation history, assignees, and real-time status transitions. Includes Toast Notifications for instant UX feedback.
-![Ticket Details](gallery/ticket.png)
+![Ticket Details](./gallery/ticket.png)
 
 ### 4. Knowledge Base (Public & Admin View)
 The self-service heart of the platform. A searchable library of guides and solutions. When an employee types a related complaint, the system suggests these articles instantly.
-![KB Information](gallery/information.png)
+![KB Information](./gallery/information.png)
 
 ### 5. Secure Authentication
 Role-based access control (RBAC) separating standard `User` privileges from `Admin` capabilities.
-![Login Admin](gallery/login_admin.png)
+![Login Admin](./gallery/login_admin.png)
 
 ---
 
