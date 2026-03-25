@@ -1,97 +1,98 @@
 # Smart IT Helpdesk 🚀
 
-> A modern, end-to-end IT Support Management platform built to streamline employee request workflows and reduce repetitive IT inquiries through an integrated Knowledge Base and Service Level Agreement (SLA) tracking system.
-
-## 🎯 Project Overview & Business Value
-
-In many organizations, IT teams spend excessive time handling repetitive, low-level inquiries (e.g., "how to reset my password" or "printer is jammed"). My objective was to build a system that acts as a **smart filter**:
-1. **Self-Service First**: Employees are automatically suggested solutions from the Knowledge Base before submitting a ticket.
-2. **Prioritization & SLA**: Tickets that do reach the IT team are strictly categorized and tracked against strict time-to-resolution targets (SLAs).
-3. **Data-Driven Insight**: IT Managers get immediate visibility into support volume and bottleneck categories via the Analytics Dashboard.
-
-**Impact**: This workflow has the potential to *reduce repetitive tickets by up to 30-50%* while ensuring zero requests slip through the cracks.
+**Smart IT Helpdesk** is a professional-grade IT Service Management (ITSM) system designed to optimize internal support operations, reduce response times, and improve employee productivity through structured ticketing workflows and automated knowledge management.
 
 ---
 
-## 📸 System Gallery & Features
+## �️ System Overview
 
-### 1. Dashboard & SLA Tracking
-The central hub for IT Admins. Provides real-time metrics on open tickets, resolution rates, and recent ticket activity. Tickets are visually tagged with SLA targets (e.g., *Urgent: 1h target*, *Normal: 4h target*) and pulse warnings when breached.
+The Smart IT Helpdesk serves as the central nervous system for organizational IT support. By integrating a searchable Knowledge Base with a high-priority ticketing engine, the system ensures that critical technical issues are resolved within defined service levels while routing repetitive inquiries through self-service channels.
+
+### Core Capabilities:
+- **Incident & Request Management**: Full lifecycle tracking of IT issues with categorized routing and assignee ownership.
+- **SLA-Driven Workflows**: Automatic enforcement of Response Time targets based on incident priority (Urgent, High, Normal, Low).
+- **Proactive Knowledge Base**: A centralized repository of technical documentation that surfaces solutions during the ticket creation process to deflect redundant reports.
+- **Real-time Analytics**: High-level data visualization for management to monitor support volume trends and system health.
+
+---
+
+## 📸 System Interface
+
+### 1. Unified Dashboard
+The command center for IT administrators, featuring real-time KPI tracking, distribution metrics, and an prioritized incident queue.
 ![Dashboard & Tickets](./gallery/dashboard_ticket.png)
 
-### 2. Interactive Analytics
-A dedicated analytics view featuring responsive charts (built with Recharts) that map daily ticket volume trends and distribute support requests by department/category, helping managers spot recurring infrastructure issues.
+### 2. Operational Analytics
+Interactive data visualizations (powered by Recharts) providing insights into high-volume incident categories and daily trend analysis to identify recurring infrastructure bottlenecks.
 ![Analytics](./gallery/analytics.png)
 ![Statistics](./gallery/statistik.png)
 
-### 3. Ticket Management
-Rich ticket detail views that show the complete conversation history, assignees, and real-time status transitions. Includes Toast Notifications for instant UX feedback.
+### 3. Incident Lifecycle Tracking
+Detailed audit logs and activity history for every support request, ensuring accountability and transparent communication between support staff and employees.
 ![Ticket Details](./gallery/ticket.png)
 
-### 4. Knowledge Base (Public & Admin View)
-The self-service heart of the platform. A searchable library of guides and solutions. When an employee types a related complaint, the system suggests these articles instantly.
+### 4. Smart Knowledge Repository
+A public-facing portal for self-directed troubleshooting, fully integrated with the incident reporting engine for instant solution suggestions.
 ![KB Information](./gallery/information.png)
 
-### 5. Secure Authentication
-Role-based access control (RBAC) separating standard `User` privileges from `Admin` capabilities.
+### 5. Enterprise Security & Access Control
+Secure authentication layer with Role-Based Access Control (RBAC) to maintain internal data integrity and separate administrative tasks from general user reporting.
 ![Login Admin](./gallery/login_admin.png)
 
 ---
 
-## 🛠️ Tech Stack & Architecture
+## ⚙️ Technical Architecture
 
-This project was built focusing on modern SPA (Single Page Application) principles, eliminating page reloads while maintaining the robust backend ecosystem of Laravel.
+Built for performance and scalability using a modern Single Page Application (SPA) architecture.
 
-- **Frontend:**
-  - **React 19** + **Inertia.js** (Server-driven SPA routing)
-  - **Tailwind CSS** + **shadcn/ui v4** (Premium, accessible UI components)
-  - **Recharts** (Interactive data visualization)
-  - **React Hot Toast** (Real-time application feedback)
-- **Backend:**
-  - **Laravel 11** (PHP Framework)
-  - **SQLite / MySQL**
-  - **Laravel Breeze** (Auth scaffolding)
-- **Design System:**
-  - Glassmorphism dark mode out-of-the-box
-  - HSL-driven CSS variables for custom theming
+- **Frontend Engine**: React 19 optimized with Inertia.js for seamless, zero-page-reload navigation.
+- **Styling & UI**: Tailwind CSS coupled with the shadcn/ui design system for a premium, accessible user interface.
+- **Backend Infrastructure**: Laravel 11 providing a robust, secure PHP foundation for data persistence and business logic.
+- **Database**: Supports SQLite for lightweight deployment and MySQL/PostgreSQL for enterprise scaling.
+- **Design Tokens**: Fully implemented dark-mode with HSL-driven variables for consistent branding.
 
-## 🚀 How to Run Locally
+---
 
-You can spin up this project locally with the dummy data (30 realistic IT tickets pre-seeded).
+## � Deployment Guide
+
+Follow these steps to deploy and initialize the system environment.
+
+### Prerequisites
+- PHP 8.2+
+- Node.js 20+
+- Composer & NPM
+
+### Setup Instructions
 
 ```bash
-# 1. Clone the repository
+# 1. Clone the environment
 git clone https://github.com/qinleeyan/smart-helpdesk.git
 cd smart-helpdesk
 
-# 2. Install PHP Dependencies
+# 2. Install core dependencies
 composer install
-
-# 3. Install NPM Dependencies
 npm install
 
-# 4. Setup Environment
+# 3. Configure environment parameters
 cp .env.example .env
 php artisan key:generate
 
-# 5. Migrate & Seed Database 
-# (This seeds 30 realistic dummy tickets + sample KB articles)
+# 4. Initialize Database & Seed Data
+# Note: This command populates the system with realistic incident records.
 php artisan migrate:fresh --seed
 
-# 6. Run the Dev Servers (Run these simultaneously)
+# 5. Launch Application Services
 php artisan serve
 npm run dev
 ```
 
-### Default Demo Accounts
+### Access Credentials (Default)
 
-**Admin User:**
-- Email: `admin@example.com`
-- Password: `password`
-
-**Regular Employee User:**
-- Email: `test@example.com`
-- Password: `password`
+| Role | Email | Password |
+|------|-------|----------|
+| Administrator | `admin@example.com` | `password` |
+| Standard User | `test@example.com` | `password` |
 
 ---
-*Built by Dany Saputra.*
+*Documentation for Smart IT Helpdesk v1.0.0*
+
